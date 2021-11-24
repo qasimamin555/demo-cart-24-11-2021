@@ -2,6 +2,8 @@
 import Product from '../models/product.model';
 import errorHandler from '../helpers/dbErrorHandler';
 import nodemailer from 'nodemailer'
+import smtpTransport from 'nodemailer-smtp-transport'
+
 
 
 
@@ -9,14 +11,14 @@ const EmailService = async (req,res) => {
  
 
   const tomail=req.body.email
-  const transporter = nodemailer.createTransport({
+  const transporter = nodemailer.createTransport(smtpTransport({
     service: 'gmail',
 
     auth: {
       user: process.env.gmail,
       pass: process.env.pass
     }
-  });
+  }));
 
   
   var mailOptions = {
