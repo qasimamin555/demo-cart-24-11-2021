@@ -7,7 +7,7 @@ import { Alarm } from '@material-ui/icons';
 
 console.log('mongo URL',process.env.atlas_URI)
 mongoose.Promise = global.Promise
-mongoose.connect(process.env.atlas_URI)
+mongoose.connect(process.env.atlas_URI || process.env.MONGODB_URI)
 mongoose.connection.on('error', (error) => {
       if(error){console.log('network problem')}
 })
