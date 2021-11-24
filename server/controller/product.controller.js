@@ -15,14 +15,14 @@ const EmailService = async (req,res) => {
     service: 'gmail',
 
     auth: {
-      user: process.env.gmail,
-      pass: process.env.pass
+      user: 'qasimamin1477@gmail.com',
+      pass: 'xqlkgnnjhzbxvbtf'
     }
   }));
 
   
   var mailOptions = {
-    from: process.env.gmail,
+    from: 'qasimamin1477@gmail.com',
     to: tomail,
     subject: 'ZohraJabin Alert',
     html:
