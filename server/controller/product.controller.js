@@ -2,7 +2,7 @@
 import Product from '../models/product.model';
 import errorHandler from '../helpers/dbErrorHandler';
 import nodemailer from 'nodemailer'
-import config from '../../config/config'
+
 
 
 const EmailService = async (req,res) => {
@@ -13,14 +13,14 @@ const EmailService = async (req,res) => {
     service: 'gmail',
 
     auth: {
-      user: config.gmail,
-      pass: config.pass
+      user: process.env.gmail,
+      pass: process.env.pass
     }
   });
 
   
   var mailOptions = {
-    from: config.gmail,
+    from: process.env.gmail,
     to: tomail,
     subject: 'ZohraJabin Alert',
     html:

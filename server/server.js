@@ -3,8 +3,11 @@ import app from './express'
 import mongoose from 'mongoose'
 import { Alarm } from '@material-ui/icons';
 
+// require('dotenv').config()
+
+console.log('mongo URL',process.env.atlas_URI)
 mongoose.Promise = global.Promise
-mongoose.connect(config.mongoUri)
+mongoose.connect(process.env.atlas_URI)
 mongoose.connection.on('error', (error) => {
       if(error){console.log('network problem')}
 })
