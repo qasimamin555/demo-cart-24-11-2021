@@ -6,7 +6,7 @@ import { Alarm } from '@material-ui/icons';
 // require('dotenv').config()
 
 mongoose.Promise = global.Promise
-mongoose.connect( process.env.MONGODB_URI || process.env.atlas_URI )
+mongoose.connect(config.mongoUri)
 mongoose.connection.on('error', (error) => {
       if(error){console.log('network problem')}
 })
